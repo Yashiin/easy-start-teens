@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Easy Start Teens: plataforma digital de orientação profissional para jovens — Projeto de TCC do Curso Técnico em Administração (2026).">
+<title>Easy Start Teens | Orientação profissional para jovens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4eb;
+  --alt: #ece6d6;
+  --ink: #17231d;
+  --mut: #525d56;
+  --line: #d5cdbc;
+  --card: #ffffff;
+  --card-sub: #f4f0e4;
+  --btn: #1a3a2b;
+  --btn-ink: #ffffff;
+  --ac: #c84b20;
+  --ac-soft: rgba(200, 75, 32, 0.12);
+  --green: #1a3a2b;
+  --green-soft: rgba(26, 58, 43, 0.1);
+  --bronze: #8c6218;
+  --bronze-soft: rgba(140, 98, 24, 0.12);
+  --dk: #11241b;
+  --dk2: #193327;
+  --on: #f7f4eb;
+  --on-mut: #c2ccc5;
+  --shadow: 0 10px 30px rgba(23, 35, 29, 0.08);
+  --shadow-lg: 0 20px 45px rgba(23, 35, 29, 0.15);
+  --radius: 16px;
+  --f: "Archivo", system-ui, -apple-system, Arial, sans-serif;
+  --f-serif: "Fraunces", Georgia, serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0c1310;
+  --alt: #121d18;
+  --ink: #f1f5f2;
+  --mut: #a3b1a9;
+  --line: #24352c;
+  --card: #16231d;
+  --card-sub: #1c2c24;
+  --btn: #f1f5f2;
+  --btn-ink: #11241b;
+  --ac: #f06434;
+  --ac-soft: rgba(240, 100, 52, 0.18);
+  --green: #69c99e;
+  --green-soft: rgba(105, 201, 158, 0.15);
+  --bronze: #e5b352;
+  --bronze-soft: rgba(229, 179, 82, 0.15);
+  --dk: #080e0b;
+  --dk2: #121e18;
+  --on: #f4f7f5;
+  --on-mut: #9fb0a6;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 76px); scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.6 var(--f);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+:focus-visible { outline: 3px solid var(--ac); outline-offset: 3px; }
+.w { max-width: 1260px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* TOP NAVBAR & MEGA MENU */
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: rgba(17, 36, 27, 0.96);
+  backdrop-filter: blur(12px);
+  color: var(--on);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  min-height: 68px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--on);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ac);
+  box-shadow: 0 0 12px var(--ac);
+}
+.top nav { flex: 1; min-width: 0; }
+.top ul {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+}
+.top nav button {
+  font: 600 0.96rem var(--f);
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  color: var(--on);
+  padding: 1.25rem 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+.top nav button:hover,
+.top nav button[aria-expanded="true"] {
+  color: #ffd166;
+  border-bottom-color: var(--ac);
+}
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.theme-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--on);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  font: 600 0.85rem var(--f);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.theme-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+.mega {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--card);
+  color: var(--ink);
+  border-bottom: 2px solid var(--ac);
+  box-shadow: var(--shadow-lg);
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+}
+.in {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 1.8rem 1.5rem 2.2rem;
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.mega h4 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  color: var(--ac);
+}
+.mega a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.3rem 0;
+  font-weight: 500;
+  transition: transform 0.15s, color 0.15s;
+}
+.mega a:hover {
+  color: var(--ac);
+  transform: translateX(4px);
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font: 700 0.96rem var(--f);
+  background: var(--btn);
+  color: var(--btn-ink);
+  border: 2px solid var(--btn);
+  border-radius: 10px;
+  padding: 0.78rem 1.35rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn::after { content: "\203A"; font-size: 1.3em; line-height: 1; }
+.btn.no-arrow::after { content: none; }
+.btn.wh { background: #fff; color: #11241b; border-color: #fff; }
+.btn.out { background: transparent; color: var(--on); border-color: rgba(255,255,255,0.45); }
+.btn.ac { background: var(--ac); color: #fff; border-color: var(--ac); }
+.btn:hover {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: #fff;
+  transform: translateY(-2px);
+}
+@media (max-width: 760px) {
+  .cta { display: none; }
+  .bar { gap: 0.5rem; padding: 0 1rem; }
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 4.5rem 0 5rem;
+  color: var(--on);
+  background:
+    radial-gradient(55% 85% at 88% 12%, rgba(200, 75, 32, 0.45), transparent 65%),
+    radial-gradient(45% 60% at 10% 95%, rgba(45, 122, 88, 0.35), transparent 60%),
+    var(--dk);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffd166;
+  padding: 0.38rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+}
+.hero h1 {
+  font-family: var(--f-serif);
+  font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+.hero .sub-h {
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  color: #ffd166;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+.hero p {
+  max-width: 54ch;
+  font-size: 1.15rem;
+  color: var(--on-mut);
+  margin: 0 0 2rem;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+.hero-img {
+  position: relative;
+}
+.hero-img img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 20px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  display: block;
+  margin-left: auto;
+}
+
+/* SECTIONS GENERAL */
+section { padding: 4.8rem 0; }
+.sec-kicker {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ac);
+  background: var(--ac-soft);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+h2 {
+  font-family: var(--f-serif);
+  font-size: clamp(1.9rem, 3.8vw, 2.85rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin: 0 0 0.85rem;
+  max-width: 28ch;
+}
+.lead {
+  color: var(--mut);
+  max-width: 66ch;
+  font-size: 1.12rem;
+  margin: 0 0 2.4rem;
+}
+.alt { background: var(--alt); }
+
+/* DESAFIO STRIP */
+.strip {
+  background: var(--dk2);
+  color: var(--on);
+  padding: 4.5rem 0;
+}
+.strip .lead, .strip .src { color: var(--on-mut); }
+.t3 {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.tz {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: transform 0.2s;
+}
+.tz:hover { transform: translateY(-4px); }
+.tz b {
+  display: block;
+  font-family: var(--f-serif);
+  font-size: 3.8rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #ffd166;
+  margin-bottom: 0.85rem;
+}
+.tz p { margin: 0; font-size: 1.05rem; }
+.src { color: var(--mut); font-size: 0.9rem; margin: 1.6rem 0 0; }
+
+/* COLUMNS & STEPS */
+.cols {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  counter-reset: s;
+}
+.cols > div {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--ac);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+}
+.cols h3 { font-size: 1.3rem; line-height: 1.25; margin: 0 0 0.6rem; }
+.cols p { margin: 0; color: var(--mut); }
+
+/* ILLUSTRATED STEPS */
+.steps-cards {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+.step-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+.step-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+.step-item .step-body { padding: 1.5rem; }
+.step-badge {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--ac);
+  background: var(--ac-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+}
+.step-item h3 { margin: 0 0 0.5rem; font-size: 1.35rem; }
+.step-item p { margin: 0; color: var(--mut); }
+
+.note {
+  margin: 2rem 0 0;
+  padding: 1rem 1.4rem;
+  background: var(--ac-soft);
+  border-left: 4px solid var(--ac);
+  border-radius: 8px;
+  font-weight: 600;
+  max-width: 75ch;
+}
+
+/* AREAS OVERVIEW CARDS (Slide 4) */
+.areas-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.area-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 7px solid var(--green);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+.area-box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.area-box.hum-box { border-top-color: var(--ac); }
+.area-box.ele-box { border-top-color: var(--bronze); }
+.area-box h3 {
+  font-family: var(--f-serif);
+  font-size: 1.65rem;
+  margin: 0 0 0.5rem;
+}
+.area-box p { color: var(--mut); margin: 0 0 1rem; font-size: 0.96rem; }
+.area-box ul {
+  margin: 0 0 1.2rem;
+  padding-left: 1.2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.area-box li { margin-bottom: 0.3rem; }
+.area-box .area-cta {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ac);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* TOOLBAR: TABS + SEARCH */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--card);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+}
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tabs button {
+  font: 700 0.92rem var(--f);
+  padding: 0.55rem 1.1rem;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--card-sub);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tabs button:hover { border-color: var(--ac); }
+.tabs button[aria-pressed="true"] {
+  background: var(--btn);
+  color: var(--btn-ink);
+  border-color: var(--btn);
+}
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+  max-width: 360px;
+}
+.search-wrap input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.3rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: var(--card-sub);
+  color: var(--ink);
+  font: 500 0.94rem var(--f);
+}
+.search-wrap input:focus {
+  outline: none;
+  border-color: var(--ac);
+}
+.search-wrap span {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+#ad {
+  color: var(--mut);
+  font-weight: 500;
+  min-height: 1.6em;
+  margin: 0 0 1.5rem;
+}
+
+/* CAREER CARDS GRID */
+.grid {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+.cd {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.cd:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.cd.recommended {
+  border: 2.5px solid var(--ac);
+  box-shadow: 0 0 0 4px var(--ac-soft);
+}
+.th {
+  position: relative;
+  height: 165px;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  overflow: hidden;
+}
+.th svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.35s ease;
+}
+.cd:hover .th svg { transform: scale(1.05); }
+.th .badge-area {
+  position: absolute;
+  left: 0.85rem;
+  top: 0.85rem;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font: 700 0.76rem var(--f);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+.th .badge-level {
+  position: absolute;
+  right: 0.85rem;
+  top: 0.85rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #11241b;
+  font: 700 0.75rem var(--f);
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+}
+.tech .th { background: linear-gradient(135deg, #0b2a2a, #17745a); }
+.hum .th { background: linear-gradient(135deg, #43140d, #c84b20); }
+.ele .th { background: linear-gradient(135deg, #2e2208, #9a6608); }
+.st .th { height: 90px; background: linear-gradient(135deg, #11241b, #28543f); }
+
+.bd {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+  padding: 1.4rem;
+}
+.bd h3 {
+  font-family: var(--f-serif);
+  margin: 0;
+  font-size: 1.42rem;
+  line-height: 1.2;
+}
+.bd p { margin: 0; font-size: 0.96rem; }
+.info-box {
+  background: var(--card-sub);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.9rem;
+}
+.info-box strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ac);
+  margin-bottom: 0.2rem;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.skill-pill {
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: var(--alt);
+  color: var(--ink);
+  padding: 0.24rem 0.6rem;
+  border-radius: 6px;
+}
+.card-actions {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.card-btn {
+  flex: 1;
+  font: 700 0.84rem var(--f);
+  padding: 0.55rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: 1.5px solid var(--btn);
+  background: var(--btn);
+  color: var(--btn-ink);
+  transition: all 0.2s;
+}
+.card-btn:hover {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: #fff;
+}
+.card-btn.sec {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+  flex: 0 0 auto;
+}
+.card-btn.sec.active {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: #fff;
+}
+
+/* INTERACTIVE QUIZ SECTION (MVP Autoconhecimento) */
+.quiz-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+.quiz-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-bottom: 1.5rem;
+}
+.q-box {
+  background: var(--card-sub);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+.q-box h4 { margin: 0 0 0.75rem; font-size: 1rem; }
+.q-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+.quiz-out {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: var(--dk2);
+  color: var(--on);
+}
+
+/* OFFICIAL SOURCES WALL */
+.wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.wall a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 92px;
+  padding: 1.1rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
+}
+.wall a small {
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: var(--mut);
+  margin-top: 0.25rem;
+}
+.wall a:hover {
+  border-color: var(--ac);
+  color: var(--ac);
+  transform: translateY(-3px);
+}
+
+/* MVP SECTION */
+.mvp {
+  color: var(--on);
+  background:
+    radial-gradient(50% 80% at 92% 10%, rgba(200, 75, 32, 0.35), transparent 60%),
+    var(--dk);
+}
+.mvp-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+.mvp .lead { color: var(--on-mut); }
+.mvp ul {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.mvp li {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 1.3rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.mvp-img img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  display: block;
+  margin-left: auto;
+}
+
+/* BANNER & END */
+.ban {
+  margin-top: 1.8rem;
+  background: var(--dk2);
+  color: var(--on);
+  padding: 2rem;
+  border-radius: var(--radius);
+}
+.ban h3 { margin: 0 0 0.4rem; font-family: var(--f-serif); font-size: 1.65rem; color: #ffd166; }
+.ban p { margin: 0; color: var(--on-mut); }
+
+.end {
+  background: linear-gradient(135deg, #8f3412, #b8431b);
+  color: #fff;
+}
+.end-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+.end p { max-width: 56ch; color: rgba(255, 255, 255, 0.92); margin: 0 0 1rem; font-size: 1.12rem; }
+.team-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.team-chip {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.96rem;
+}
+.end-img img {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  display: block;
+  margin-left: auto;
+}
+
+/* FOOTER */
+footer {
+  background: #08110d;
+  color: var(--on);
+  padding: 3.5rem 0 2rem;
+  border-top: 1px solid #1e2f26;
+}
+.fc {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+footer h4 { margin: 0 0 0.75rem; font-size: 1rem; color: #ffd166; }
+footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+footer a, footer li { color: #cfdad3; text-decoration: none; font-size: 0.95rem; }
+footer a:hover { color: var(--ac); text-decoration: underline; }
+.legal {
+  margin: 2.5rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid #1e2f26;
+  color: var(--on-mut);
+  font-size: 0.88rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* FLOATING COMPARE BAR & MODAL */
+.cmp-bar {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dk);
+  color: var(--on);
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 90;
+}
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 17, 13, 0.72);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 120;
+}
+.modal-box {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  max-width: 780px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.2rem;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+.modal-close {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card-sub);
+  color: var(--ink);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.cmp-table th, .cmp-table td {
+  border: 1px solid var(--line);
+  padding: 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.92rem;
+}
+.cmp-table th { background: var(--card-sub); }
+
+@media (max-width: 920px) {
+  .hero-grid, .mvp-split, .end-grid { grid-template-columns: 1fr; }
+  .hero-img img, .mvp-img img, .end-img img { margin: 0 auto; }
+}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="#top"><i></i>Easy Start Teens</a>
+    <nav aria-label="Principal"><ul id="mn"></ul></nav>
+    <div class="nav-tools">
+      <button class="theme-btn" id="theme-toggle" type="button" aria-label="Alternar tema">🌙 Tema</button>
+      <a class="btn wh cta" href="#carreiras">Carreiras</a>
+    </div>
+  </div>
+  <div class="mega" id="mg" hidden></div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="w hero-grid">
+    <div>
+      <span class="hero-tag">🎓 Projeto de TCC · Curso Técnico em Administração · 2026</span>
+      <h1>Easy Start Teens</h1>
+      <p class="sub-h">Orientação profissional para jovens: mais clareza para escolher o futuro.</p>
+      <p>Uma plataforma digital para apoiar estudantes do Ensino Médio e jovens recém-formados na escolha de carreira com autoconhecimento, dados confiáveis e planejamento de próximos passos.</p>
+      <div class="hero-actions">
+        <a class="btn ac" href="#carreiras">Explorar Cartões de Carreiras</a>
+        <a class="btn out" href="#quiz">Fazer Questionário Rápido</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="img/hero-estudantes.png" alt="Jovens estudantes conversando sobre futuro e carreira">
+    </div>
+  </div>
+</section>
+
+<!-- O DESAFIO -->
+<section class="strip" id="desafio">
+  <div class="w">
+    <span class="sec-kicker" style="background:rgba(255,209,102,.18);color:#ffd166">Contexto Nacional</span>
+    <h2>O desafio: escolher com informação</h2>
+    <p class="lead">Conhecer opções formativas e relacioná-las aos próprios interesses é uma dificuldade real para a juventude brasileira.</p>
+    <div class="t3">
+      <div class="tz"><b>42%</b><p>dos jovens de 14 a 24 anos conhecem pouco ou nada da formação técnica.</p></div>
+      <div class="tz"><b>52%</b><p>dos jovens de 14 a 17 anos conhecem pouco ou nada da formação técnica.</p></div>
+      <div class="tz"><b>56%</b><p>dos jovens de 14 a 24 anos têm interesse na formação técnica quando informados.</p></div>
+    </div>
+    <p class="src">Fonte: IPRI/SENAI. Pesquisa de opinião com 2.007 jovens de 14 a 24 anos, maio de 2024.</p>
+  </div>
+</section>
+
+<!-- POR QUE ISSO IMPORTA -->
+<section>
+  <div class="w">
+    <span class="sec-kicker">Justificativa</span>
+    <h2>Por que isso importa?</h2>
+    <div class="cols">
+      <div>
+        <h3>Falta de informação sobre cursos e profissões</h3>
+        <p>A plataforma reúne áreas, profissões, cursos técnicos e superiores, além de links diretos de fontes oficiais e confiáveis.</p>
+      </div>
+      <div>
+        <h3>Dificuldade para comparar caminhos possíveis</h3>
+        <p>Permite comparar carreiras lado a lado (atividades, formação, tempo de estudo e habilidades) e organizar um plano de ação.</p>
+      </div>
+      <div>
+        <h3>Necessidade de conectar interesses e oportunidades</h3>
+        <p>O questionário de autoconhecimento aproxima interesses, preferências e habilidades pessoais das áreas profissionais reais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA A PLATAFORMA -->
+<section class="alt" id="plataforma">
+  <div class="w">
+    <span class="sec-kicker">Jornada em 3 Passos</span>
+    <h2>Como funciona a plataforma</h2>
+    <p class="lead">Objetivo: apoiar estudantes do Ensino Médio e jovens recém-formados na exploração de áreas profissionais, com informação clara e um plano de próximos passos.</p>
+    <div class="steps-cards">
+      <article class="step-item">
+        <img src="img/passo-1-conhecer.png" alt="Passo 01: Conhecer-se">
+        <div class="step-body">
+          <span class="step-badge">Passo 01</span>
+          <h3>Conhecer-se</h3>
+          <p>Responder a perguntas sobre interesses, preferências cotidianas e habilidades pessoais.</p>
+        </div>
+      </article>
+      <article class="step-item">
+        <img src="img/passo-2-explorar.png" alt="Passo 02: Explorar opções">
+        <div class="step-body">
+          <span class="step-badge">Passo 02</span>
+          <h3>Explorar opções</h3>
+          <p>Consultar áreas, profissões, cursos técnicos ou universitários e links de fontes confiáveis.</p>
+        </div>
+      </article>
+      <article class="step-item">
+        <img src="img/passo-3-planejar.png" alt="Passo 03: Planejar">
+        <div class="step-body">
+          <span class="step-badge">Passo 03</span>
+          <h3>Planejar</h3>
+          <p>Organizar ações iniciais e próximos passos práticos com apoio ético de uma ferramenta de IA.</p>
+        </div>
+      </article>
+    </div>
+    <p class="note">💡 A plataforma complementa a orientação profissional; não escolhe a carreira no lugar do jovem.</p>
+  </div>
+</section>
+
+<!-- QUESTIONÁRIO INTERATIVO DE AUTOCONHECIMENTO -->
+<section id="quiz">
+  <div class="w">
+    <span class="sec-kicker">Simulador Interativo do MVP</span>
+    <h2>Descubra áreas conectadas ao seu perfil</h2>
+    <p class="lead">Responda a 3 perguntas rápidas para experimentar como o Easy Start Teens sugere áreas e destaca as carreiras abaixo.</p>
+    <div class="quiz-card">
+      <div class="quiz-grid">
+        <div class="q-box">
+          <h4>1. O que você mais gosta de fazer ou aprender?</h4>
+          <label class="q-opt"><input type="radio" name="q1" value="tech" checked> <span>Resolver problemas com tecnologia, computadores, apps e dados.</span></label>
+          <label class="q-opt"><input type="radio" name="q1" value="hum"> <span>Dialogar com pessoas, compreender a sociedade, ensinar ou comunicar.</span></label>
+          <label class="q-opt"><input type="radio" name="q1" value="ele"> <span>Trabalhar com energia, circuitos elétricos, máquinas e automação.</span></label>
+        </div>
+        <div class="q-box">
+          <h4>2. Qual ambiente ou atividade chama mais sua atenção?</h4>
+          <label class="q-opt"><input type="radio" name="q2" value="tech" checked> <span>Desenvolvimento de sistemas, análise de dados, redes ou IA.</span></label>
+          <label class="q-opt"><input type="radio" name="q2" value="hum"> <span>Saúde emocional, leis e direitos, educação ou produção jornalística.</span></label>
+          <label class="q-opt"><input type="radio" name="q2" value="ele"> <span>Projetos elétricos, manutenção industrial, robótica ou energia solar.</span></label>
+        </div>
+        <div class="q-box">
+          <h4>3. Qual caminho inicial de estudo você prefere explorar primeiro?</h4>
+          <label class="q-opt"><input type="radio" name="q3" value="Técnico" checked> <span>Curso Técnico rápido (1,5 a 2 anos) focado na prática profissional.</span></label>
+          <label class="q-opt"><input type="radio" name="q3" value="Graduação"> <span>Graduação Universitária (Bacharelado, Licenciatura ou Tecnólogo).</span></label>
+          <label class="q-opt"><input type="radio" name="q3" value="Ambos"> <span>Quero conhecer tanto cursos técnicos quanto faculdades.</span></label>
+        </div>
+      </div>
+      <button class="btn ac" type="button" id="run-quiz-btn">Ver Sugestão e Destacar Carreiras</button>
+      <div class="quiz-out" id="quiz-out" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO DE ÁREAS E CARTÕES DE CARREIRAS -->
+<section class="alt" id="carreiras">
+  <div class="w">
+    <span class="sec-kicker">Cartões de Carreiras</span>
+    <h2>Áreas e carreiras que ajudamos a formar e explorar</h2>
+    <p class="lead">Clique em uma área ou utilize os filtros para explorar os cartões detalhados de cada carreira: atividades cotidianas, formação necessária, habilidades, plano de ação e links oficiais.</p>
+
+    <!-- 3 Macro Cards from Slide 4 -->
+    <div class="areas-overview">
+      <div class="area-box" onclick="setF('tech')">
+        <h3>💻 Tecnologia</h3>
+        <p>Para quem gosta de resolver problemas com computadores e dados.</p>
+        <ul>
+          <li>Desenvolvimento de sistemas</li>
+          <li>Análise de dados</li>
+          <li>Redes e segurança da informação</li>
+          <li>Inteligência artificial</li>
+        </ul>
+        <span class="area-cta">Ver as 4 carreiras de Tecnologia →</span>
+      </div>
+      <div class="area-box hum-box" onclick="setF('hum')">
+        <h3>🤝 Humanas</h3>
+        <p>Para quem se interessa por pessoas, sociedade e comunicação.</p>
+        <ul>
+          <li>Psicologia</li>
+          <li>Direito</li>
+          <li>Pedagogia</li>
+          <li>Comunicação e jornalismo</li>
+        </ul>
+        <span class="area-cta">Ver as 4 carreiras de Humanas →</span>
+      </div>
+      <div class="area-box ele-box" onclick="setF('ele')">
+        <h3>⚡ Elétrica</h3>
+        <p>Para quem gosta de energia, circuitos e automação.</p>
+        <ul>
+          <li>Engenharia elétrica</li>
+          <li>Técnico em eletrotécnica</li>
+          <li>Automação industrial</li>
+          <li>Energia solar</li>
+        </ul>
+        <span class="area-cta">Ver as 4 carreiras de Elétrica →</span>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="tabs" id="tabs" role="group" aria-label="Filtrar por área"></div>
+      <div class="search-wrap">
+        <span>🔍</span>
+        <input type="search" id="search-input" placeholder="Buscar carreira, curso ou habilidade..." aria-label="Buscar carreira">
+      </div>
+    </div>
+
+    <p id="ad"></p>
+    <div class="grid" id="grid"></div>
+    <p class="src">Exemplos ilustrativos: a plataforma não indica uma profissão, apenas apresenta caminhos para explorar.</p>
+  </div>
+</section>
+
+<!-- FONTES OFICIAIS -->
+<section id="fontes">
+  <div class="w">
+    <span class="sec-kicker">Confiabilidade</span>
+    <h2>Fontes oficiais para consultar</h2>
+    <p class="lead">Cada carreira traz links diretos de fontes confiáveis, como órgãos públicos de educação, conselhos profissionais e instituições reconhecidas.</p>
+    <div class="wall" id="wall"></div>
+  </div>
+</section>
+
+<!-- RECURSOS DO MVP -->
+<section class="mvp" id="mvp">
+  <div class="w mvp-split">
+    <div>
+      <span class="sec-kicker" style="background:rgba(255,209,102,.18);color:#ffd166">Escopo do Produto</span>
+      <h2>Recursos previstos no MVP</h2>
+      <p class="lead">O que a primeira versão da plataforma oferece para apoiar o estudante.</p>
+      <ul>
+        <li>✓ Questionário de autoconhecimento</li>
+        <li>✓ Sugestões de áreas profissionais</li>
+        <li>✓ Informações sobre profissões e cursos, com links oficiais</li>
+        <li>✓ Plano de ação apoiado por IA</li>
+      </ul>
+      <h3 style="color:#ffd166;margin:0 0 .4rem">Recursos desejáveis (já demonstrados nesta página!)</h3>
+      <p style="color:var(--on-mut);margin:0">Comparar carreiras lado a lado e visualizar/revisar o plano de ação de cada carreira.</p>
+    </div>
+    <div class="mvp-img">
+      <img src="img/mvp-ia.png" alt="Jovem utilizando o MVP com assistente de IA">
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACIDADE E IA -->
+<section id="ia">
+  <div class="w">
+    <span class="sec-kicker">Ética & LGPD</span>
+    <h2>Privacidade e uso responsável da IA</h2>
+    <p class="lead">A confiança e a autonomia dos jovens são parte central da proposta.</p>
+    <div class="cols">
+      <div><h3>Proteção de dados</h3><p>Evitar o envio de dados pessoais identificáveis a serviços de IA de terceiros.</p></div>
+      <div><h3>Transparência</h3><p>Deixar claro que a IA pode errar e que suas sugestões não são garantias.</p></div>
+      <div><h3>Autonomia</h3><p>A decisão final continua sendo do jovem, com espaço para conversar com pessoas de confiança.</p></div>
+      <div><h3>Acessibilidade</h3><p>Apresentar conteúdo simples, organizado e fácil de compreender.</p></div>
+    </div>
+    <div class="ban">
+      <h3>A IA é apoio, não autoridade.</h3>
+      <p>A plataforma deve incentivar escolhas informadas, sem prometer resultados.</p>
+    </div>
+    <p class="src">O desenvolvimento deve considerar a LGPD e as normas aplicáveis à proteção de crianças e adolescentes.</p>
+  </div>
+</section>
+
+<!-- METODOLOGIA -->
+<section class="alt" id="metodo">
+  <div class="w">
+    <span class="sec-kicker">Metodologia Científica</span>
+    <h2>Como o trabalho foi desenvolvido</h2>
+    <p class="lead">Pesquisa aplicada, qualitativa e exploratória, com base bibliográfica/documental e proposta de MVP.</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <article class="cd st"><div class="th">Etapa 1</div><div class="bd"><h3>Pesquisa</h3><p>Levantar referências sobre orientação profissional, juventude e tecnologia.</p></div></article>
+      <article class="cd st"><div class="th">Etapa 2</div><div class="bd"><h3>Definição do MVP</h3><p>Selecionar funcionalidades essenciais para a primeira versão.</p></div></article>
+      <article class="cd st"><div class="th">Etapa 3</div><div class="bd"><h3>Cuidados éticos</h3><p>Considerar privacidade, transparência, acessibilidade e autonomia.</p></div></article>
+      <article class="cd st"><div class="th">Etapa 4</div><div class="bd"><h3>Próxima etapa</h3><p>Implementar e testar a plataforma para avaliar sua utilidade.</p></div></article>
+    </div>
+    <p class="note"><strong>Importante:</strong> O projeto descreve uma proposta de plataforma; resultados de testes com usuários só devem ser apresentados após a implementação.</p>
+  </div>
+</section>
+
+<!-- ENCERRAMENTO & EQUIPE -->
+<section class="end" id="equipe">
+  <div class="w end-grid">
+    <div>
+      <h2>Easy Start Teens: mais clareza para escolher o futuro.</h2>
+      <p>O futuro não precisa ser decidido de uma vez. Começa com uma boa pergunta e informação confiável.</p>
+      <p>Conecta autoconhecimento, informação sobre cursos e profissões e planejamento de próximos passos.</p>
+      <h3 style="margin:1.8rem 0 0.6rem;font-family:var(--f-serif);color:#ffd166">Equipe do TCC</h3>
+      <div class="team-cards">
+        <span class="team-chip">👩‍🎓 Ana Julia Jesus</span>
+        <span class="team-chip">👨‍🎓 Enisfell Azavache</span>
+        <span class="team-chip">👩‍🎓 Ana Julia Louzado</span>
+      </div>
+      <a class="btn wh" href="#carreiras" style="margin-top:0.8rem">Explorar as Carreiras</a>
+    </div>
+    <div class="end-img">
+      <img src="img/futuro-escolha.png" alt="Jovem avaliando opções para o futuro">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="w">
+    <div class="fc">
+      <div><h4>Projeto</h4><ul><li><a href="#desafio">O desafio</a></li><li><a href="#plataforma">Como funciona</a></li><li><a href="#metodo">Método</a></li></ul></div>
+      <div><h4>Carreiras</h4><ul><li><a href="#carreiras" data-f="tech">Tecnologia</a></li><li><a href="#carreiras" data-f="hum">Humanas</a></li><li><a href="#carreiras" data-f="ele">Elétrica</a></li></ul></div>
+      <div><h4>Recursos</h4><ul><li><a href="#quiz">Questionário MVP</a></li><li><a href="#mvp">Escopo do MVP</a></li><li><a href="#ia">IA responsável</a></li><li><a href="#fontes">Fontes oficiais</a></li></ul></div>
+      <div><h4>Equipe</h4><ul><li>Ana Julia Jesus</li><li>Enisfell Azavache</li><li>Ana Julia Louzado</li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Easy Start Teens · TCC · Curso Técnico em Administração. Projeto acadêmico.</span>
+      <span>Orientação profissional com autoconhecimento e informação confiável.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING COMPARE BAR -->
+<div class="cmp-bar" id="cmp-bar" hidden>
+  <span id="cmp-count">0 selecionadas</span>
+  <button class="btn ac no-arrow" type="button" style="padding:.45rem .95rem;font-size:.86rem" id="cmp-open">Comparar Carreiras</button>
+  <button class="theme-btn" type="button" id="cmp-clear">Limpar</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg" hidden>
+  <div class="modal-box" id="modal-box" role="dialog" aria-modal="true"></div>
+</div>
+
+<script>
+var A = {
+  tech: ["Tecnologia", "Para quem gosta de resolver problemas com computadores, sistemas e dados."],
+  hum: ["Humanas", "Para quem se interessa por pessoas, comportamento, sociedade e comunicação."],
+  ele: ["Elétrica", "Para quem gosta de energia, circuitos, instalações e automação."]
+};
+
+var C = [
+  {
+    area: "tech",
+    title: "Desenvolvimento de sistemas",
+    level: "Técnico / Graduação",
+    summary: "Cria, testa e mantém programas, aplicativos móveis, sites e sistemas web que resolvem problemas do cotidiano.",
+    formation: "Curso Técnico em Desenvolvimento de Sistemas (1,5 a 2 anos) ou Graduação em Análise e Desenvolvimento de Sistemas (ADS), Ciência da Computação ou Engenharia de Software.",
+    skills: ["Lógica de Programação", "Web & Apps", "Banco de Dados", "Trabalho em Equipe"],
+    where: "Empresas de tecnologia, bancos, startups, comércio, indústria e órgãos públicos.",
+    steps: [
+      "Experimentar lógica de programação básica com cursos introdutórios gratuitos.",
+      "Consultar o Catálogo Nacional de Cursos Técnicos (CNCT/MEC) para conhecer a grade de Desenvolvimento de Sistemas.",
+      "Desenvolver um primeiro pequeno projeto prático (como uma página web ou aplicativo simples)."
+    ],
+    sourceName: "Catálogo Nacional de Cursos Técnicos",
+    sourceUrl: "https://cnct.mec.gov.br"
+  },
+  {
+    area: "tech",
+    title: "Análise de dados",
+    level: "Técnico / Graduação",
+    summary: "Coleta, organiza e interpreta dados e estatísticas para criar painéis visuais e apoiar decisões estratégicas.",
+    formation: "Graduação em Ciência de Dados, Estatística, Ciência da Computação ou Administração/TI com cursos de BI e análise de dados.",
+    skills: ["Pensamento Analítico", "Planilhas & SQL", "Gráficos e Dashboards", "Resolução de Problemas"],
+    where: "Setores de administração, finanças, marketing, logística, saúde e tecnologia.",
+    steps: [
+      "Praticar organização de informações e gráficos em planilhas (Excel / Google Sheets).",
+      "Explorar fundamentos de visualização de dados (Power BI ou Python inicial).",
+      "Pesquisar cursos superiores de tecnologia na área de Ciência de Dados."
+    ],
+    sourceName: "Sociedade Brasileira de Computação",
+    sourceUrl: "https://www.sbc.org.br"
+  },
+  {
+    area: "tech",
+    title: "Redes e segurança da informação",
+    level: "Técnico / Graduação",
+    summary: "Cuida da conectividade das redes de computadores e protege sistemas, servidores e dados contra ameaças digitais.",
+    formation: "Curso Técnico em Redes de Computadores ou Informática (1,5 a 2 anos), ou Graduação em Segurança da Informação / Redes.",
+    skills: ["Cibersegurança", "Infraestrutura de Redes", "Proteção de Dados (LGPD)", "Atenção a Detalhes"],
+    where: "Provedores de internet, empresas de telecomunicações, bancos, hospitais e consultorias de TI.",
+    steps: [
+      "Conhecer como funcionam as redes locais, roteadores e a segurança na internet.",
+      "Buscar escolas técnicas (SENAI, ETECs, Institutos Federais) com Técnico em Redes.",
+      "Aprender boas práticas de segurança digital e proteção da privacidade."
+    ],
+    sourceName: "CERT.br",
+    sourceUrl: "https://www.cert.br"
+  },
+  {
+    area: "tech",
+    title: "Inteligência artificial",
+    level: "Graduação / Especialização",
+    summary: "Desenvolve e aplica sistemas que aprendem com dados, como assistentes inteligentes, automação e análise preditiva.",
+    formation: "Base técnica em programação seguida de Graduação em Ciência da Computação, Ciência de Dados ou Inteligência Artificial.",
+    skills: ["Python & Matemática", "Aprendizado de Máquina", "Ética e Uso Responsável", "Inovação"],
+    where: "Centros de pesquisa, empresas de software, indústria 4.0, educação e serviços digitais.",
+    steps: [
+      "Entender como modelos de IA funcionam e quais são seus cuidados éticos.",
+      "Fortalecer a base de Matemática e Lógica de Programação no Ensino Médio.",
+      "Realizar cursos introdutórios gratuitos sobre Inteligência Artificial e dados."
+    ],
+    sourceName: "Sociedade Brasileira de Computação",
+    sourceUrl: "https://www.sbc.org.br"
+  },
+  {
+    area: "hum",
+    title: "Psicologia",
+    level: "Graduação (5 anos)",
+    summary: "Estuda o comportamento humano e as emoções, promovendo saúde mental, autoconhecimento e orientação em diversos contextos.",
+    formation: "Graduação em Psicologia (Bacharelado / Formação de Psicólogo) e registro no Conselho Regional de Psicologia (CRP).",
+    skills: ["Escuta Ativa", "Empatia", "Ética Profissional", "Análise Comportamental"],
+    where: "Clínicas, escolas, orientação profissional, hospitais, projetos sociais e Recursos Humanos (RH) de empresas.",
+    steps: [
+      "Pesquisar as diferentes áreas de atuação da Psicologia (escolar, clínica, organizacional, social).",
+      "Conversar com psicólogos ou orientadores educacionais sobre a rotina da profissão.",
+      "Consultar cursos de Psicologia reconhecidos pelo MEC."
+    ],
+    sourceName: "Conselho Federal de Psicologia",
+    sourceUrl: "https://site.cfp.org.br"
+  },
+  {
+    area: "hum",
+    title: "Direito",
+    level: "Técnico / Graduação",
+    summary: "Atua na defesa de direitos, mediação de conflitos, aplicação das leis e orientação jurídica de cidadãos e organizações.",
+    formation: "Técnico em Serviços Jurídicos (porta de entrada rápida) ou Graduação em Direito (5 anos) com aprovação no Exame da OAB para advogar.",
+    skills: ["Leitura e Argumentação", "Senso de Justiça", "Interpretação de Leis", "Mediação"],
+    where: "Escritórios de advocacia, defensoria pública, tribunais, departamentos jurídicos de empresas e proteção de dados.",
+    steps: [
+      "Conhecer noções de direitos fundamentais, cidadania e legislação brasileira.",
+      "Praticar leitura, interpretação de textos, redação e debates na escola.",
+      "Verificar o curso Técnico em Serviços Jurídicos ou faculdades de Direito."
+    ],
+    sourceName: "Ordem dos Advogados do Brasil",
+    sourceUrl: "https://www.oab.org.br"
+  },
+  {
+    area: "hum",
+    title: "Pedagogia",
+    level: "Graduação (Licenciatura)",
+    summary: "Trabalha com processos de ensino, aprendizagem, inclusão educacional, coordenação escolar e treinamento humano.",
+    formation: "Graduação em Pedagogia (Licenciatura – 4 anos).",
+    skills: ["Didática", "Comunicação Clara", "Acolhimento e Empatia", "Gestão Educacional"],
+    where: "Escolas públicas e privadas, gestão escolar, editoras, ONGs e educação corporativa em empresas.",
+    steps: [
+      "Observar como professores e coordenadores planejam projetos educativos na escola.",
+      "Descobrir os campos de atuação do pedagogo dentro e fora da sala de aula.",
+      "Pesquisar licenciaturas em Pedagogia em universidades públicas e privadas."
+    ],
+    sourceName: "Ministério da Educação",
+    sourceUrl: "https://www.gov.br/mec"
+  },
+  {
+    area: "hum",
+    title: "Comunicação e jornalismo",
+    level: "Técnico / Graduação",
+    summary: "Apura fatos, entrevista fontes, produz e divulga informações confiáveis em texto, áudio, vídeo e mídias digitais.",
+    formation: "Técnico em Multimídia / Publicidade ou Graduação em Jornalismo / Comunicação Social (4 anos).",
+    skills: ["Escrita e Narrativa", "Checagem de Fatos", "Senso Crítico", "Produção Audiovisual"],
+    where: "Portais de notícias, emissoras de rádio e TV, assessorias de imprensa, agências digitais e comunicação institucional.",
+    steps: [
+      "Praticar escrita criativa, checagem de informações e combate à desinformação.",
+      "Participar de projetos de jornal escolar, podcast ou produção de conteúdo educativo.",
+      "Explorar grades curriculares de Jornalismo e Comunicação Social."
+    ],
+    sourceName: "Federação Nacional dos Jornalistas",
+    sourceUrl: "https://fenaj.org.br"
+  },
+  {
+    area: "ele",
+    title: "Engenharia elétrica",
+    level: "Graduação (5 anos)",
+    summary: "Projeta, supervisiona e inova em sistemas de geração, transmissão, distribuição e uso eficiente de energia elétrica.",
+    formation: "Graduação em Engenharia Elétrica (5 anos) e registro profissional no sistema Confea/Crea.",
+    skills: ["Física e Cálculo", "Projetos de Energia", "Visão Sistêmica", "Inovação Tecnológica"],
+    where: "Concessionárias de energia, indústrias, construtoras, empresas de engenharia e telecomunicações.",
+    steps: [
+      "Fortalecer os estudos de Física (eletricidade) e Matemática no Ensino Médio.",
+      "Entender a atuação conjunta entre Engenheiros Eletricistas e Técnicos em Eletrotécnica.",
+      "Pesquisar universidades e Institutos Federais que oferecem Engenharia Elétrica."
+    ],
+    sourceName: "Confea",
+    sourceUrl: "https://www.confea.org.br"
+  },
+  {
+    area: "ele",
+    title: "Técnico em eletrotécnica",
+    level: "Curso Técnico (1,5 a 2 anos)",
+    summary: "Realiza instalação, manutenção, testes e operação de sistemas e painéis elétricos prediais, comerciais e industriais.",
+    formation: "Curso Técnico em Eletrotécnica (oferecido por SENAI, Institutos Federais e escolas técnicas estaduais).",
+    skills: ["Instalações Elétricas", "Normas de Segurança (NR-10)", "Leitura de Diagramas", "Prática Técnica"],
+    where: "Indústrias, empresas de manutenção elétrica, construção civil e distribuidoras de energia.",
+    steps: [
+      "Consultar unidades do SENAI, ETEC ou Instituto Federal próximas que oferecem Eletrotécnica.",
+      "Conhecer os laboratórios práticos de instalações e comandos elétricos.",
+      "Buscar oportunidades de Jovem Aprendiz na área industrial e elétrica."
+    ],
+    sourceName: "Catálogo Nacional de Cursos Técnicos",
+    sourceUrl: "https://cnct.mec.gov.br"
+  },
+  {
+    area: "ele",
+    title: "Automação industrial",
+    level: "Técnico / Graduação",
+    summary: "Integra elétrica, sensores, programação e robótica para automatizar máquinas e linhas de produção modernas.",
+    formation: "Curso Técnico em Automação Industrial / Mecatrônica (1,5 a 2 anos) ou Engenharia de Controle e Automação.",
+    skills: ["Sensores e Robótica", "Programação de CLPs", "Eletrônica Aplicada", "Indústria 4.0"],
+    where: "Indústrias automotivas, alimentícias, farmacêuticas, logística automatizada e integradoras de tecnologia.",
+    steps: [
+      "Explorar como sensores, motores e placas (como Arduino) funcionam juntos.",
+      "Visitar ou conhecer os cursos do SENAI na área de Automação e Mecatrônica.",
+      "Acompanhar vídeos e feiras sobre robótica e Indústria 4.0."
+    ],
+    sourceName: "SENAI",
+    sourceUrl: "https://www.senai.br"
+  },
+  {
+    area: "ele",
+    title: "Energia solar",
+    level: "Técnico / Qualificação",
+    summary: "Projeta, dimensiona, instala e mantém sistemas fotovoltaicos que transformam a luz do sol em energia elétrica limpa.",
+    formation: "Cursos técnicos em Sistemas de Energia Renovável / Eletrotécnica, cursos profissionalizantes de Instalador Solar ou Engenharia.",
+    skills: ["Sistemas Fotovoltaicos", "Sustentabilidade", "Eficiência Energética", "Segurança Elétrica"],
+    where: "Empresas integradoras de energia solar, usinas fotovoltaicas, consultorias de eficiência energética e atuação autônoma.",
+    steps: [
+      "Compreender o funcionamento básico dos painéis solares e inversores.",
+      "Pesquisar cursos de qualificação em Energia Solar Fotovoltaica no SENAI e institutos técnicos.",
+      "Conhecer o crescimento do mercado de energias renováveis no Brasil."
+    ],
+    sourceName: "ABSOLAR",
+    sourceUrl: "https://www.absolar.org.br"
+  }
+];
+
+var S = {
+  "Desenvolvimento de sistemas":'<rect x="92" y="108" width="136" height="9" rx="4" fill="#fff"/><rect x="104" y="36" width="112" height="72" rx="6" fill="#0d1f1c" stroke="#fff" stroke-width="4"/><rect x="116" y="50" width="38" height="6" rx="3" fill="#ffd166"/><rect x="124" y="64" width="64" height="6" rx="3" fill="#fff"/><rect x="124" y="78" width="44" height="6" rx="3" fill="#7de3c1"/><rect x="116" y="92" width="30" height="6" rx="3" fill="#ffd166"/><text x="256" y="92" text-anchor="middle" font-size="38" font-weight="800" fill="#fff" opacity=".4" font-family="monospace">&lt;/&gt;</text><circle cx="52" cy="48" r="7" fill="#ffd166"/><circle cx="68" cy="128" r="5" fill="#fff" opacity=".5"/>',
+  "Análise de dados":'<path d="M88 136H244M88 136V38" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7"/><rect x="104" y="96" width="24" height="40" fill="#fff"/><rect x="138" y="76" width="24" height="60" fill="#7de3c1"/><rect x="172" y="102" width="24" height="34" fill="#fff"/><rect x="206" y="56" width="24" height="80" fill="#ffd166"/><polyline points="116,80 150,62 184,86 218,42" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><g fill="#fff"><circle cx="116" cy="80" r="5"/><circle cx="150" cy="62" r="5"/><circle cx="184" cy="86" r="5"/><circle cx="218" cy="42" r="5"/></g>',
+  "Redes e segurança da informação":'<g stroke="#fff" stroke-width="2.5" opacity=".5"><path d="M50 40L112 70M270 40L208 70M50 132L112 108M270 132L208 108"/></g><g fill="#ffd166"><circle cx="50" cy="40" r="7"/><circle cx="270" cy="40" r="7"/><circle cx="50" cy="132" r="7"/><circle cx="270" cy="132" r="7"/></g><path d="M160 28l50 18v36c0 30-22 50-50 60-28-10-50-30-50-60V46z" fill="#fff"/><rect x="143" y="78" width="34" height="28" rx="4" fill="#17745a"/><path d="M150 78v-9a10 10 0 0120 0v9" fill="none" stroke="#17745a" stroke-width="5"/>',
+  "Inteligência artificial":'<g stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M138 36v14M160 36v14M182 36v14M138 120v14M160 120v14M182 120v14M104 68h14M104 85h14M104 102h14M202 68h14M202 85h14M202 102h14"/></g><rect x="118" y="50" width="84" height="70" rx="9" fill="#fff"/><text x="160" y="98" text-anchor="middle" font-size="32" font-weight="800" fill="#17745a" font-family="Archivo,Arial,sans-serif">IA</text><circle cx="250" cy="44" r="6" fill="#ffd166"/><circle cx="72" cy="126" r="5" fill="#ffd166"/><circle cx="262" cy="118" r="4" fill="#fff" opacity=".6"/><circle cx="62" cy="52" r="4" fill="#fff" opacity=".6"/>',
+  "Psicologia":'<rect x="62" y="40" width="108" height="58" rx="14" fill="#fff"/><path d="M92 98l-6 20 26-20z" fill="#fff"/><g fill="#c7401f"><circle cx="94" cy="69" r="5.5"/><circle cx="116" cy="69" r="5.5"/><circle cx="138" cy="69" r="5.5"/></g><rect x="150" y="72" width="108" height="58" rx="14" fill="#ffd166"/><path d="M228 130l6 20-26-20z" fill="#ffd166"/><path d="M204 118c-17-11-22-18-22-25a11 11 0 0122-3 11 11 0 0122 3c0 7-5 14-22 25z" fill="#c7401f"/>',
+  "Direito":'<rect x="85" y="48" width="150" height="6" rx="3" fill="#fff"/><rect x="156" y="42" width="8" height="84" fill="#fff"/><rect x="124" y="124" width="72" height="10" rx="3" fill="#fff"/><circle cx="160" cy="38" r="9" fill="#ffd166"/><path d="M96 54L74 102M96 54L118 102M224 54L202 102M224 54L246 102" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M70 102h52a26 18 0 01-52 0zM198 102h52a26 18 0 01-52 0z" fill="#ffd166"/>',
+  "Pedagogia":'<rect x="72" y="34" width="176" height="92" rx="6" fill="#1b3a30" stroke="#fff" stroke-width="5"/><text x="96" y="78" font-size="30" font-weight="800" fill="#fff" font-family="Archivo,Arial,sans-serif">A B C</text><path d="M96 98h84M96 110h50" stroke="#ffd166" stroke-width="4" stroke-linecap="round"/><rect x="72" y="130" width="176" height="7" rx="3" fill="#fff"/><rect x="196" y="123" width="24" height="7" rx="2" fill="#ffd166"/><path d="M212 56l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z" fill="#ffd166"/>',
+  "Comunicação e jornalismo":'<rect x="104" y="36" width="38" height="62" rx="19" fill="#fff"/><path d="M114 56h18M114 68h18" stroke="#c7401f" stroke-width="4" stroke-linecap="round"/><path d="M94 80a29 29 0 0058 0M123 109v24M102 133h42" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M158 58a22 22 0 010 28M168 50a34 34 0 010 44" fill="none" stroke="#ffd166" stroke-width="4" stroke-linecap="round"/><rect x="190" y="44" width="84" height="90" rx="5" fill="#fff"/><rect x="200" y="54" width="64" height="16" fill="#c7401f"/><path d="M200 84h64M200 96h64M200 108h40" stroke="#c9c9c9" stroke-width="5"/>',
+  "Engenharia elétrica":'<path d="M160 30L128 136M160 30L192 136M143 84h34M135 110h50" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M104 60h112M120 88h80" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M36 74Q70 96 104 60M216 60Q250 96 284 74" fill="none" stroke="#fff" stroke-width="2.5" opacity=".7"/><path d="M268 14l-24 34h17l-9 30 31-40h-18z" fill="#ffd166"/>',
+  "Técnico em eletrotécnica":'<rect x="92" y="34" width="136" height="104" rx="8" fill="#fff"/><g fill="#2e2208"><rect x="108" y="52" width="24" height="48" rx="4"/><rect x="148" y="52" width="24" height="48" rx="4"/><rect x="188" y="52" width="24" height="48" rx="4"/></g><g fill="#ffd166"><rect x="111" y="55" width="18" height="20" rx="3"/><rect x="151" y="77" width="18" height="20" rx="3"/><rect x="191" y="55" width="18" height="20" rx="3"/></g><g fill="#9a6608"><circle cx="120" cy="118" r="5"/><circle cx="160" cy="118" r="5"/><circle cx="200" cy="118" r="5"/></g><path d="M228 86h34V56" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="262" cy="46" r="9" fill="#ffd166"/>',
+  "Automação industrial":'<rect x="96" y="124" width="92" height="14" rx="4" fill="#fff"/><path d="M142 124V86L196 52L232 72" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><circle cx="142" cy="86" r="11" fill="#ffd166"/><circle cx="196" cy="52" r="11" fill="#ffd166"/><path d="M232 72l14 9M232 72l7 15" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="64" cy="70" r="21" fill="none" stroke="#fff" stroke-width="8" stroke-dasharray="7 5"/><circle cx="64" cy="70" r="8" fill="#fff"/><rect x="206" y="120" width="86" height="10" rx="5" fill="#fff" opacity=".6"/><rect x="238" y="100" width="28" height="20" rx="3" fill="#ffd166"/>',
+  "Energia solar":'<circle cx="244" cy="46" r="17" fill="#ffd166"/><path d="M244 16v-6M244 82v6M214 46h-6M280 46h6M222 24l-4-4M266 68l4 4M266 24l4-4M222 68l-4 4" stroke="#ffd166" stroke-width="4" stroke-linecap="round"/><path d="M62 126l28-60h130l-28 60z" fill="#152b4a" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><path d="M122 66L94 126M155 66L127 126M188 66L160 126M76 96H206" stroke="#fff" stroke-width="2" opacity=".7"/><path d="M127 126v14M98 140h58" stroke="#fff" stroke-width="5" stroke-linecap="round"/>'
+};
+
+function e(t, c, x) {
+  var n = document.createElement(t);
+  if (c) n.className = c;
+  if (x) n.textContent = x;
+  return n;
+}
+
+var mn = document.getElementById("mn"),
+    mg = document.getElementById("mg"),
+    ad = document.getElementById("ad"),
+    grid = document.getElementById("grid"),
+    tabs = document.getElementById("tabs"),
+    wall = document.getElementById("wall"),
+    searchInput = document.getElementById("search-input"),
+    cmpBar = document.getElementById("cmp-bar"),
+    cmpCount = document.getElementById("cmp-count"),
+    modalBg = document.getElementById("modal-bg"),
+    modalBox = document.getElementById("modal-box");
+
+var activeFilter = "all";
+var compareList = [];
+var recommendedArea = null;
+
+function closeAll() {
+  mn.querySelectorAll("button").forEach(function(b) { b.setAttribute("aria-expanded", "false"); });
+  mg.querySelectorAll(".in").forEach(function(p) { p.hidden = true; });
+  mg.hidden = true;
+}
+
+function setF(k) {
+  activeFilter = k;
+  tabs.querySelectorAll("button").forEach(function(b) {
+    b.setAttribute("aria-pressed", b.dataset.f == k);
+  });
+  ad.textContent = k == "all"
+    ? "Exibindo todas as 12 carreiras: atividades, formação, habilidades, plano de ação e links oficiais."
+    : A[k][0] + " — " + A[k][1];
+  renderCards();
+}
+
+/* BUILD MEGA MENU */
+var M = [
+  ["Áreas & Carreiras", Object.keys(A).map(function(k) {
+    return [A[k][0], "#carreiras", C.filter(function(c) { return c.area == k; }).map(function(c) { return [c.title, "#carreiras"]; }), k];
+  })],
+  ["Plataforma", [
+    ["Como funciona", "#plataforma", [["1. Conhecer-se", "#plataforma"], ["2. Explorar opções", "#plataforma"], ["3. Planejar", "#plataforma"]]],
+    ["Simulador & MVP", "#quiz", [["Questionário de autoconhecimento", "#quiz"], ["Recursos previstos no MVP", "#mvp"]]]
+  ]],
+  ["IA responsável", [
+    ["Princípios & LGPD", "#ia", [["Proteção de dados", "#ia"], ["Transparência", "#ia"], ["Autonomia", "#ia"], ["Acessibilidade", "#ia"]]]
+  ]],
+  ["Projeto TCC", [
+    ["Sobre o Trabalho", "#desafio", [["O desafio (IPRI/SENAI)", "#desafio"], ["Fontes oficiais", "#fontes"], ["Metodologia", "#metodo"], ["Equipe do TCC", "#equipe"]]]
+  ]]
+];
+
+M.forEach(function(m) {
+  var li = e("li"), b = e("button", "", m[0]), p = e("div", "in");
+  b.setAttribute("aria-expanded", "false");
+  b.setAttribute("aria-controls", "mg");
+  p.hidden = true;
+  m[1].forEach(function(c) {
+    var d = e("div"), h = e("h4"), ha = e("a", "", c[0]);
+    ha.href = c[1];
+    if (c[3]) ha.dataset.f = c[3];
+    h.appendChild(ha);
+    d.appendChild(h);
+    c[2].forEach(function(l) {
+      var a = e("a", "", l[0]);
+      a.href = l[1];
+      if (c[3]) a.dataset.f = c[3];
+      d.appendChild(a);
+    });
+    p.appendChild(d);
+  });
+  b.onclick = function() {
+    var was = b.getAttribute("aria-expanded") == "true";
+    closeAll();
+    if (!was) {
+      b.setAttribute("aria-expanded", "true");
+      p.hidden = false;
+      mg.hidden = false;
+    }
+  };
+  li.appendChild(b);
+  mn.appendChild(li);
+  mg.appendChild(p);
+});
+
+/* BUILD FILTER TABS */
+[["all", "Todas (12)"]].concat(Object.keys(A).map(function(k) {
+  return [k, A[k][0] + " (4)"];
+})).forEach(function(t) {
+  var b = e("button", "", t[1]);
+  b.dataset.f = t[0];
+  b.setAttribute("aria-pressed", "false");
+  b.onclick = function() { setF(t[0]); };
+  tabs.appendChild(b);
+});
+
+/* RENDER CAREER CARDS */
+function renderCards() {
+  var q = (searchInput.value || "").toLowerCase().trim();
+  grid.innerHTML = "";
+
+  C.forEach(function(c, idx) {
+    var matchArea = activeFilter == "all" || c.area == activeFilter;
+    var matchQuery = !q ||
+      c.title.toLowerCase().indexOf(q) !== -1 ||
+      c.summary.toLowerCase().indexOf(q) !== -1 ||
+      c.formation.toLowerCase().indexOf(q) !== -1 ||
+      c.skills.join(" ").toLowerCase().indexOf(q) !== -1;
+
+    if (!matchArea || !matchQuery) return;
+
+    var isRec = recommendedArea && c.area === recommendedArea;
+    var isCmp = compareList.indexOf(idx) !== -1;
+
+    var d = e("article", "cd " + c.area + (isRec ? " recommended" : ""));
+    d.dataset.a = c.area;
+
+    var th = e("div", "th");
+    th.innerHTML = '<svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + S[c.title] + '</svg>';
+    th.appendChild(e("span", "badge-area", A[c.area][0]));
+    th.appendChild(e("span", "badge-level", c.level));
+
+    var bd = e("div", "bd");
+    bd.appendChild(e("h3", "", c.title));
+    bd.appendChild(e("p", "", c.summary));
+
+    var formBox = e("div", "info-box");
+    formBox.innerHTML = "<strong>Formação recomendada</strong>" + c.formation;
+    bd.appendChild(formBox);
+
+    var whereBox = e("div", "info-box");
+    whereBox.innerHTML = "<strong>Onde atuar</strong>" + c.where;
+    bd.appendChild(whereBox);
+
+    var sk = e("div", "skills-list");
+    c.skills.forEach(function(s) {
+      sk.appendChild(e("span", "skill-pill", s));
+    });
+    bd.appendChild(sk);
+
+    var acts = e("div", "card-actions");
+
+    var btnDetail = e("button", "card-btn", "📋 Plano de Ação & Detalhes");
+    btnDetail.type = "button";
+    btnDetail.onclick = function() { openDetailModal(idx); };
+
+    var btnCmp = e("button", "card-btn sec" + (isCmp ? " active" : ""), isCmp ? "✓ Comparando" : "⚖️ Comparar");
+    btnCmp.type = "button";
+    btnCmp.onclick = function() { toggleCompare(idx); };
+
+    var linkOficial = e("a", "card-btn sec", "🔗 " + c.sourceName);
+    linkOficial.href = c.sourceUrl;
+    linkOficial.target = "_blank";
+    linkOficial.rel = "noopener";
+
+    acts.appendChild(btnDetail);
+    acts.appendChild(btnCmp);
+    acts.appendChild(linkOficial);
+    bd.appendChild(acts);
+
+    d.appendChild(th);
+    d.appendChild(bd);
+    grid.appendChild(d);
+  });
+}
+
+searchInput.addEventListener("input", renderCards);
+
+/* OFFICIAL SOURCES WALL */
+var seen = {};
+C.forEach(function(c) {
+  if (!seen[c.sourceUrl]) {
+    seen[c.sourceUrl] = 1;
+    var a = e("a", "");
+    a.href = c.sourceUrl;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.innerHTML = "<span>" + c.sourceName + "</span><small>Acessar portal oficial ↗</small>";
+    wall.appendChild(a);
+  }
+});
+
+/* DETAIL MODAL */
+function openDetailModal(idx) {
+  var c = C[idx];
+  modalBox.innerHTML =
+    '<button class="modal-close" type="button" onclick="closeModal()">✕</button>' +
+    '<span class="sec-kicker">' + A[c.area][0] + ' · ' + c.level + '</span>' +
+    '<h2 style="margin-bottom:.5rem">' + c.title + '</h2>' +
+    '<p style="color:var(--mut);margin-bottom:1.2rem">' + c.summary + '</p>' +
+    '<div class="info-box" style="margin-bottom:.9rem"><strong>Formação e Cursos</strong>' + c.formation + '</div>' +
+    '<div class="info-box" style="margin-bottom:.9rem"><strong>Onde atuar</strong>' + c.where + '</div>' +
+    '<div class="info-box" style="margin-bottom:1.2rem"><strong>Plano de Ação Inicial (Apoio MVP)</strong>' +
+      '<ol style="margin:.5rem 0 0;padding-left:1.2rem">' +
+      c.steps.map(function(st) { return '<li style="margin-bottom:.35rem">' + st + '</li>'; }).join("") +
+      '</ol>' +
+    '</div>' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">' +
+      '<a class="btn ac" href="' + c.sourceUrl + '" target="_blank" rel="noopener">Acessar ' + c.sourceName + '</a>' +
+      '<button class="btn no-arrow" type="button" onclick="closeModal()">Fechar</button>' +
+    '</div>';
+  modalBg.hidden = false;
+}
+
+/* COMPARE CAREERS */
+function toggleCompare(idx) {
+  var pos = compareList.indexOf(idx);
+  if (pos !== -1) {
+    compareList.splice(pos, 1);
+  } else {
+    if (compareList.length >= 3) {
+      alert("Você pode selecionar até 3 carreiras para comparar lado a lado.");
+      return;
+    }
+    compareList.push(idx);
+  }
+  updateCompareBar();
+  renderCards();
+}
+
+function updateCompareBar() {
+  if (compareList.length > 0) {
+    cmpBar.hidden = false;
+    cmpCount.textContent = compareList.length + " carreira(s) selecionada(s)";
+  } else {
+    cmpBar.hidden = true;
+  }
+}
+
+document.getElementById("cmp-clear").onclick = function() {
+  compareList = [];
+  updateCompareBar();
+  renderCards();
+};
+
+document.getElementById("cmp-open").onclick = function() {
+  var items = compareList.map(function(i) { return C[i]; });
+  if (!items.length) return;
+  modalBox.innerHTML =
+    '<button class="modal-close" type="button" onclick="closeModal()">✕</button>' +
+    '<span class="sec-kicker">Recurso do MVP</span>' +
+    '<h2>Comparação de Carreiras</h2>' +
+    '<div style="overflow-x:auto">' +
+    '<table class="cmp-table">' +
+      '<thead><tr><th>Critério</th>' + items.map(function(it) { return '<th>' + it.title + '</th>'; }).join("") + '</tr></thead>' +
+      '<tbody>' +
+        '<tr><td><strong>Área</strong></td>' + items.map(function(it) { return '<td>' + A[it.area][0] + '</td>'; }).join("") + '</tr>' +
+        '<tr><td><strong>Nível</strong></td>' + items.map(function(it) { return '<td>' + it.level + '</td>'; }).join("") + '</tr>' +
+        '<tr><td><strong>O que faz</strong></td>' + items.map(function(it) { return '<td>' + it.summary + '</td>'; }).join("") + '</tr>' +
+        '<tr><td><strong>Formação</strong></td>' + items.map(function(it) { return '<td>' + it.formation + '</td>'; }).join("") + '</tr>' +
+        '<tr><td><strong>Habilidades</strong></td>' + items.map(function(it) { return '<td>' + it.skills.join(", ") + '</td>'; }).join("") + '</tr>' +
+      '</tbody>' +
+    '</table></div>';
+  modalBg.hidden = false;
+};
+
+function closeModal() {
+  modalBg.hidden = true;
+}
+modalBg.addEventListener("click", function(ev) {
+  if (ev.target === modalBg) closeModal();
+});
+
+/* QUIZ LOGIC */
+document.getElementById("run-quiz-btn").onclick = function() {
+  var q1 = document.querySelector('input[name="q1"]:checked').value;
+  var q2 = document.querySelector('input[name="q2"]:checked').value;
+  var q3 = document.querySelector('input[name="q3"]:checked').value;
+  var rec = (q1 === q2) ? q1 : q1;
+  recommendedArea = rec;
+
+  var careersNames = C.filter(function(c) { return c.area === rec; }).map(function(c) { return c.title; }).join(" · ");
+  var out = document.getElementById("quiz-out");
+  out.hidden = false;
+  out.innerHTML =
+    '<h3 style="margin:0 0 .4rem;color:#ffd166;font-family:var(--f-serif)">🎯 Área sugerida para você explorar: ' + A[rec][0] + '</h3>' +
+    '<p style="margin:0 0 .6rem">' + A[rec][1] + ' Preferência inicial indicada: <strong>' + q3 + '</strong>.</p>' +
+    '<p style="margin:0 0 1rem;font-size:.92rem;color:var(--on-mut)"><strong>Carreiras destacadas:</strong> ' + careersNames + '</p>' +
+    '<a class="btn wh" href="#carreiras" onclick="setF(\'' + rec + '\')">Ver Cartões de ' + A[rec][0] + '</a>';
+  renderCards();
+};
+
+/* THEME TOGGLE */
+var themeBtn = document.getElementById("theme-toggle");
+themeBtn.onclick = function() {
+  var root = document.documentElement;
+  var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  root.setAttribute("data-theme", next);
+  themeBtn.textContent = next === "dark" ? "☀️ Tema" : "🌙 Tema";
+};
+
+document.addEventListener("click", function(ev) {
+  var t = ev.target, a = t.closest("a[data-f]");
+  if (a) setF(a.dataset.f);
+  if (!t.closest(".top") || t.closest("a")) closeAll();
+});
+document.addEventListener("keydown", function(ev) {
+  if (ev.key == "Escape") { closeAll(); closeModal(); }
+});
+
+setF("all");
+</script>
+</body>
+</html>
